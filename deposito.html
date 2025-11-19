@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Depósito - Alke Wallet</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body style="background-image: url('imágenes/fondo3.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<div class="mb-20"></div>
+  <div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow p-4" style="max-width: 500px; width: 100%;">
+      <div class="text-center mb-4">
+        <i class="bi bi-piggy-bank-fill text-success" style="font-size: 3rem;"></i>
+        <h3 class="mt-2">Depósito</h3>
+        <p class="text-muted">Ingresa el monto que deseas depositar</p>
+      </div>
+
+      <form id="depositForm">
+        <div class="mb-3">
+          <label for="depositAmount" class="form-label">Monto a depositar</label>
+          <input type="number" class="form-control" id="depositAmount" placeholder="$0" min="1" required>
+        </div>
+        <button type="submit" class="btn btn-success w-100">
+          <i class="bi bi-cash-coin"></i> Realizar depósito
+        </button>
+      </form>
+
+      <div id="successMsg" class="alert alert-success mt-3 d-none" role="alert">
+        ¡Depósito realizado con éxito!
+      </div>
+
+      <a href="menu.html" class="btn btn-outline-secondary w-100 mt-3">
+        <i class="bi bi-arrow-left-circle"></i> Volver al Menú
+      </a>
+      
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("depositForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const amount = parseFloat(document.getElementById("depositAmount").value);
+
+      if (amount > 0) {
+        let currentBalance = parseFloat(localStorage.getItem("saldo")) || 0;
+        let newBalance = currentBalance + amount;
+        localStorage.setItem("saldo", newBalance.toFixed(2));
+
+const transacciones = JSON.parse(localStorage.getItem("transacciones")) || [];
+transacciones.push({
+  fecha: new Date().toLocaleString("es-CL"),
+  tipo: "Depósito", 
+  monto: amount
+});
+localStorage.setItem("transacciones", JSON.stringify(transacciones));
+
+        
+        document.getElementById("successMsg").classList.remove("d-none");
+        document.getElementById("depositForm").reset();
+      } else {
+        alert("Por favor ingresa un monto válido mayor a 0.");
+      }
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
