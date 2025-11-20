@@ -16,3 +16,19 @@ Negrita: se escriben dos *, ejemplo: **esto está en negrita**
 Cursiva: se escribe un *, ejemplo: *esto está en cursiva*  
 Tachado: se escribe dos ~, ejemplo ~~esto está tachado~~  
 Código Inline: se escribe una comilla invertida \` , ejemplo `este es un bloque de código`  
+
+## Listas
+
+Para crear una lista basta con poner un guión y espacio:
+Lista desordenada
+- item 1
+- item 2
+- item 3
+ - item 3.1
+ - item 3.2
+
+ Lista ordenada
+ 1. item 1
+ 2. item 2
+ 3. item 3
+ 
