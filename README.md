@@ -35,11 +35,22 @@ Lista desordenada
  ## Enlaces o Links
 
  Para generar un enlace o link:
-[TEXTO DEL ENLACE](URL_ENLACE)
-[Otro repo](https://github.com/jocyarancibiaChile/Proyecto_tarea1)
+[TEXTO DEL ENLACE](URL_ENLACE)  
+[Otro repo](https://github.com/jocyarancibiaChile/Proyecto_tarea1)  
 
 ## Imágenes
-![TEXTO ALTERNATIVO](URL_IMAGEN)
-![TEXTO ALTERNATIVO](https://i.pinimg.com/736x/69/b0/cb/69b0cb37342a764aab3615d3355baea8.jpg)
+![TEXTO ALTERNATIVO](URL_IMAGEN)  
+![TEXTO ALTERNATIVO](https://i.pinimg.com/736x/69/b0/cb/69b0cb37342a764aab3615d3355baea8.jpg)  
+
+## Citas
+Para poner una cita en nuestro Readme ponemos un "mayor que":
+
+>esto es una cita
+
+## Tablas
+| columna 1 | columna 2 | columna 3 |
+|-----------|-----------|-----------|
+| dato 1    | dato 2    | dato 3    |
+| dato 4    | dato 5    | dato 6    |
 
 
