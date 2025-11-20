@@ -16,6 +16,12 @@ Negrita: se escriben dos *, ejemplo: **esto está en negrita**
 Cursiva: se escribe un *, ejemplo: *esto está en cursiva*  
 Tachado: se escribe dos ~, ejemplo ~~esto está tachado~~  
 Código Inline: se escribe una comilla invertida \` , ejemplo `este es un bloque de código`  
+Código en bloque, son 3 \` :
+```
+function suma (a,b){
+    return a+b;
+}
+```
 
 ## Listas
 
