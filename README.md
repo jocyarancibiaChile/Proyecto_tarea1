@@ -19,16 +19,15 @@ Código Inline: se escribe una comilla invertida \` , ejemplo `este es un bloque
 
 ## Listas
 
-Para crear una lista basta con poner un guión y espacio:
+Para crear una lista basta con poner un guión y espacio:  
 Lista desordenada
 - item 1
 - item 2
 - item 3
- - item 3.1
- - item 3.2
+  - item 3.1
+  - item 3.2
 
  Lista ordenada
  1. item 1
  2. item 2
  3. item 3
- 
