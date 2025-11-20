@@ -31,3 +31,15 @@ Lista desordenada
  1. item 1
  2. item 2
  3. item 3
+
+ ## Enlaces o Links
+
+ Para generar un enlace o link:
+[TEXTO DEL ENLACE](URL_ENLACE)
+[Otro repo](https://github.com/jocyarancibiaChile/Proyecto_tarea1)
+
+## Imágenes
+![TEXTO ALTERNATIVO](URL_IMAGEN)
+![TEXTO ALTERNATIVO](https://i.pinimg.com/736x/69/b0/cb/69b0cb37342a764aab3615d3355baea8.jpg)
+
+
