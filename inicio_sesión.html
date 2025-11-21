@@ -57,24 +57,21 @@
     document.getElementById("loginForm").addEventListener("submit", function(event) {
         event.preventDefault(); 
 
-        // 1. Obtener los valores y limpiar: 
-        // .trim() elimina espacios al inicio/final.
-        // .toLowerCase() convierte todo a minúsculas para una comparación flexible.
-        const user = document.getElementById("username").value.trim().toLowerCase();
-        const pass = document.getElementById("password").value.trim(); // La contraseña no debe cambiar a minúsculas
+               const user = document.getElementById("username").value.trim().toLowerCase();
+        const pass = document.getElementById("password").value.trim(); 
 
         const errorMsg = document.getElementById("errorMsg");
         
-        // 2. Definir las credenciales esperadas (en minúsculas para el usuario)
+       
         const userEsperado = "jocelyne2025"; 
         const passEsperada = "123456";
 
-        // 3. Validación
+       
         if (user === userEsperado && pass === passEsperada) {
-            // Éxito: Navega a la página del menú
+            
             window.location.href = "menu.html"; 
         } else {
-            // Falla: Muestra el mensaje de error
+            
             errorMsg.style.display = "block";
         }
     });
@@ -83,7 +80,7 @@
         console.log("Contraseña ingresada:", pass);
 
 
-    // Opcional: Ocultar el mensaje de error si el usuario empieza a escribir de nuevo
+   
     document.getElementById("username").addEventListener('input', function() {
         document.getElementById("errorMsg").style.display = "none";
     });
