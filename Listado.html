@@ -4,79 +4,115 @@
   <meta charset="UTF-8">
   <title>Listado de Personas</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="estilo.css">
+  <link rel="stylesheet" href="estilo2.css">
 </head>
-<style>
-        body {
-        padding: 20px;
-        }
+<body class="p-4">
 
-        .container {
-        max-width: 400px;
-        margin: 0 auto;
-        }
+  <div class="text-center mb-4">
+    <h2>
+      <img src="imagenes/logo.png" width="250" height="220" alt="logo" class="img-fluid">
+    </h2>
+  </div>
 
-    </style>
-</head>
-
-<body>
-
-    <div class="text-center">
-        <h2>
-            <img src="imagenes/logo.png" width="250" height="220" alt="logo" p-2 class="img-fluid">
-        </h2>
-    </div>
-
-
-<div class="mb-4"></div>
-  <div class="container">
-    <h2 class="mb-4">Agregar Persona para Transferencias</h2>
+  <div class="d-flex justify-content-center align-items-center vh-100">
+  <div class="card shadow p-4" style="max-width: 500px; width: 100%;">
+  <div class="text-center mb-4">
+    <h2 class="mb-4">Contactos</h2>
+    
     <form id="formPersona" class="mb-4">
       <div class="mb-3">
-        <label for="nombre" class="form-label">Nombre</label>
+        <label for="nombre" class="form-label">Nombre y Apellido</label>
         <input type="text" class="form-control" id="nombre" required>
       </div>
       <div class="mb-3">
         <label for="cuenta" class="form-label">Número de Cuenta</label>
         <input type="text" class="form-control" id="cuenta" required>
       </div>
-            <div class="mb-3">
+      <div class="mb-3">
+        <label for="cuenta" class="form-label">Rut</label>
+        <input type="text" class="form-control" id="cuenta" required>
+      </div>
+
+      <div class="mb-3">
         <label for="banco" class="form-label">Banco</label>
         <select id="banco" class="form-select" required>
           <option value="">Selecciona un banco</option>
-          <option value="Banco Estado">Banco Estado</option>
-          <option value="Banco de Chile">Banco de Chile</option>
-          <option value="Banco Santander">Banco Santander</option>
-          <option value="Banco BCI">Banco BCI</option>
-          <option value="Scotiabank">Scotiabank</option>
-          <option value="Banco Itaú">Banco Itaú</option>
-          <option value="Banco Falabella">Banco Falabella</option>
-          <option value="Banco Ripley">Banco Ripley</option>
-          <option value="Banco Security">Banco Security</option>
-          <option value="MercadoPago">MercadoPago</option>
+          <option>Banco Estado</option>
+          <option>Banco de Chile</option>
+          <option>Banco Santander</option>
+          <option>Banco BCI</option>
+          <option>Scotiabank</option>
+          <option>Banco Itaú</option>
+          <option>Banco Falabella</option>
+          <option>Banco Ripley</option>
+          <option>Banco Security</option>
+          <option>MercadoPago</option>
         </select>
       </div>
-
-      <button type="submit" class="btn btn-primary">Guardar Persona</button>
+      <div class="mb-3">
+        <label for="cuenta" class="form-label">Tipo de cuenta</label>
+        <select id="cuenta" class="form-select" required>
+          <option value="">Selecciona un tipo de cuenta</option>
+          <option>Cuenta Vista</option>
+          <option>Cuenta Corriente</option>
+          <option>Cuenta de Ahorro</option>
+        
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Guardar Persona</button>
     </form>
-    <a href="envio_dinero.html" class="btn btn-success">Ir a Transferencias</a>
+
+    
+    <table class="table table-striped" id="tablaPersonas">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Cuenta</th>
+          <th>Banco</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <a href="envio_dinero.html" class="btn btn-outline-secondary w-100 mt-3">Ir a Transferencias</a>
+    <a href="menu.html" class="btn btn-outline-secondary w-100 mt-3">
+      <i class="bi bi-arrow-left-circle"></i> Volver al Menú
+    </a>
   </div>
 
   <script>
-    document.getElementById("formPersona").addEventListener("submit", function(e) {
+    const form = document.getElementById("formPersona");
+    const tablaBody = document.querySelector("#tablaPersonas tbody");
+
+    
+    function mostrarPersonas() {
+      tablaBody.innerHTML = "";
+      const personas = JSON.parse(localStorage.getItem("personas")) || [];
+      personas.forEach(p => {
+        const fila = document.createElement("tr");
+        fila.innerHTML = `<td>${p.nombre}</td><td>${p.cuenta}</td><td>${p.banco}</td>`;
+        tablaBody.appendChild(fila);
+      });
+    }
+
+   
+    form.addEventListener("submit", function(e) {
       e.preventDefault();
       const nombre = document.getElementById("nombre").value;
       const cuenta = document.getElementById("cuenta").value;
+      const banco = document.getElementById("banco").value;
 
-      const personas = [
-  { nombre: "Ana", cuenta: "12345678", banco: "BancoEstado" },
-  { nombre: "Luis", cuenta: "87654321", banco: "Santander" }
-];
-localStorage.setItem("personas", JSON.stringify(personas));
+      const personas = JSON.parse(localStorage.getItem("personas")) || [];
+      personas.push({ nombre, cuenta, banco });
+      localStorage.setItem("personas", JSON.stringify(personas));
 
+      form.reset();
+      mostrarPersonas();
       alert("Persona guardada correctamente");
-      this.reset();
     });
+
+   
+    mostrarPersonas();
   </script>
 </body>
 </html>
