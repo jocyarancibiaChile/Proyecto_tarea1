@@ -16,8 +16,14 @@
     </h2>
   </div>
 
+  <div style="text-align: center;">
+    <label for="balance"> <strong>Saldo disponible:</strong>
+    </label>
+    <div class="mb-2"></div>
+    <h3>$<span id="saldoActual">0.00</span></h3>
+<div class= mb-4 ></div>
   <div class="container">
-    <h2 class="mb-4">Historial de Transacciones</h2>
+    <h2 class="mb-3">Historial de Transacciones</h2>
     <table id="tablaTransacciones" class="table table-bordered table-striped">
       <thead class="table-success">
         <tr>
@@ -31,6 +37,8 @@
       </thead>
       <tbody></tbody>
     </table>
+
+    
 
     <div class="d-flex gap-3 mt-4">
       <a href="envio_dinero.html" class="btn btn-outline-secondary">Volver a Transferencias</a>
@@ -67,6 +75,16 @@
         ]).draw(false);
       });
     });
+  </script>
+   <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    
+        const saldo = parseFloat(localStorage.getItem("saldo")) || 0;
+        document.getElementById("saldoActual").textContent = saldo.toLocaleString("es-CL", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+        });
+      });
   </script>
 </body>
 </html>
